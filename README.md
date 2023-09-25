@@ -52,7 +52,7 @@ setTimeout(function () {
 
 <h1>Welcome to your library project</h1>
 {#if $store_show_description}
-	<h3>{$store_show_description.title}</h3>
-	<p>{$store_show_description.content}</p>
+    <h3>{$store_show_description.title}</h3>
+    <p>{$store_show_description.content}</p>
 {/if}
 ```
