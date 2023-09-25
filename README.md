@@ -20,12 +20,12 @@ export let store_show_description = anchorable('store_show_description', false);
 
 ```svelte
 <script>
-    // main.svelte
-	import { store_show_description } from '$lib/store_show_description.js';
+// main.svelte
+import { store_show_description } from '$lib/store_show_description.js';
 
-	setTimeout(function () {
-		$store_show_description = true;
-	}, 2000);
+setTimeout(function () {
+    $store_show_description = true;
+}, 2000);
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -39,15 +39,15 @@ You're not limited to primitives, you can serialize whole objects
 
 ```svelte
 <script>
-    // main.svelte
-	import { store_show_description } from '$lib/store_show_description.js';
+// main.svelte
+import { store_show_description } from '$lib/store_show_description.js';
 
-	setTimeout(function () {
-		$store_show_description = {
-            title: "this is a description",
-            content: "hello from description"
-        };
-	}, 2000);
+setTimeout(function () {
+    $store_show_description = {
+        title: "this is a description",
+        content: "hello from description"
+    };
+}, 2000);
 </script>
 
 <h1>Welcome to your library project</h1>
