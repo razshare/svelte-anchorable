@@ -20,6 +20,7 @@ export let store_show_description = anchorable('store_show_description', false);
 
 ```svelte
 <script>
+    // main.svelte
 	import { store_show_description } from '$lib/store_show_description.js';
 
 	setTimeout(function () {
@@ -38,6 +39,7 @@ You're not limited to primitives, you can serialize whole objects
 
 ```svelte
 <script>
+    // main.svelte
 	import { store_show_description } from '$lib/store_show_description.js';
 
 	setTimeout(function () {
