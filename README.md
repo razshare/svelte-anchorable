@@ -34,6 +34,8 @@ setTimeout(function () {
     <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 {/if}
 ```
+![Peek 2023-09-26 01-40](https://github.com/tncrazvan/svelte-anchorable/assets/6891346/a97c6d08-4724-43ac-8d1c-11d8e6940ec6)
+
 
 You're not limited to primitives, you can serialize whole objects
 
@@ -56,3 +58,5 @@ setTimeout(function () {
     <p>{$store_show_description.content}</p>
 {/if}
 ```
+![Peek 2023-09-26 01-39](https://github.com/tncrazvan/svelte-anchorable/assets/6891346/a54ee1ae-aaec-45ad-af7f-a74312710bd3)
+
