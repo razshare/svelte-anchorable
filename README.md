@@ -11,7 +11,7 @@ npm i -D svelte-anchorable
 and use like so
 
 ```js
-// store_show_description.js
+// $lib/store_show_description.js
 
 import { anchorable } from 'svelte-anchorable';
 
