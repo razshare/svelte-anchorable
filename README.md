@@ -30,8 +30,7 @@ export let store_show_description = anchorable('store_show_description', false);
 
 <h1>Welcome to your library project</h1>
 {#if $store_show_description}
-  <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-  <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vel laborum obcaecati, quos hic repudiandae enim odio nulla explicabo minus, nam ipsum, possimus voluptatem amet saepe ipsam! Quos accusamus a eum. Deleniti aspernatur veniam sed itaque ratione exercitationem dolore porro! Nemo consectetur eius placeat labore sit eligendi distinctio ad, totam, illum quos maxime cupiditate repellat a vero minima unde ipsa dolorum dolorem ullam quaerat? Asperiores earum repellat ratione animi voluptates dolor accusamus minima possimus? Consectetur aliquam nisi eum illum, repudiandae eligendi quas ipsa, quisquam nulla neque fugit porro assumenda reprehenderit molestias enim suscipit architecto ipsum nesciunt dignissimos maiores rem amet?</p>
 {/if}
 ```
 
