@@ -40,6 +40,11 @@ function is_browser() {
 const browser = is_browser();
 
 /**
+ * @type {Map<string, import('svelte/store').Writable<any>>}
+ */
+const cache = new Map();
+
+/**
  * @template T
  * @param {string} storeName
  * @param {T} store
@@ -54,6 +59,16 @@ export function anchorable(
     deserialize: (x) => JSON.parse(x)
   }
 ) {
+  debugger;
+
+  if (cache.has(storeName)) {
+    console.log('cache hit');
+    const hit = cache.get(storeName);
+    if (hit) {
+      return hit;
+    }
+  }
+
   sync();
 
   if ($values[storeName]) {
@@ -64,6 +79,7 @@ export function anchorable(
     }
   }
   const result = writable(store);
+  cache.set(storeName, result);
   result.subscribe(($result) => {
     if ($result === false || $result === null || $result === undefined) {
       set(storeName, '');
