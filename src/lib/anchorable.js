@@ -38,7 +38,6 @@ function is_browser() {
 }
 
 const browser = is_browser();
-let triggered_locally = false;
 
 /**
  * @template T
@@ -66,10 +65,6 @@ export function anchorable(
   }
   const result = writable(store);
   result.subscribe(($result) => {
-    if (triggered_locally) {
-      triggered_locally = false;
-      return;
-    }
     if ($result === false || $result === null || $result === undefined) {
       set(storeName, '');
     } else {
@@ -79,28 +74,20 @@ export function anchorable(
   });
 
   let previous_value = '';
-  let first_pass = true;
 
   values.subscribe(($values) => {
-    if (first_pass) {
-      first_pass = false;
-      previous_value = $values[storeName];
-      return;
-    }
-
     if (previous_value !== $values[storeName]) {
       try {
-        triggered_locally = true;
         result.set(
           options.deserialize($values[storeName] !== '' ? $values[storeName] ?? 'false' : 'false')
         );
       } catch (e) {
-        triggered_locally = true;
         console.warn(e);
         result.set(options.deserialize('false'));
       }
     }
   });
+
   return result;
 }
 
@@ -113,18 +100,9 @@ const values = writable({});
  */
 let $values = {};
 
-let last_update = 0;
 if (browser) {
   values.subscribe((x) => ($values = x));
-  window.addEventListener('hashchange', function () {
-    const now = Date.now();
-    const delta_last_update = (now - last_update) / 1000;
-    if (delta_last_update < 100) {
-      last_update = now;
-      return;
-    }
-    sync();
-  });
+  window.addEventListener('hashchange', sync);
 }
 
 function sync() {
