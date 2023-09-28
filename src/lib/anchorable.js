@@ -59,10 +59,7 @@ export function anchorable(
     deserialize: (x) => JSON.parse(x)
   }
 ) {
-  debugger;
-
   if (cache.has(storeName)) {
-    console.log('cache hit');
     const hit = cache.get(storeName);
     if (hit) {
       return hit;
